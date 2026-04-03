@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-import {ThreeDots} from 'react-loader-spinner' // ✅ FIXED
+import {ThreeDots} from 'react-loader-spinner' 
 import JobCard from '../JobCard'
 import Header from '../Header'
 import './index.css'
@@ -24,7 +24,7 @@ class Jobs extends Component {
   }
 
   componentDidMount() {
-    // this.getProfile() ❌ optional remove
+
     this.getJobs()
   }
 
@@ -36,7 +36,7 @@ class Jobs extends Component {
     const {searchInput} = this.state
     const jwtToken = Cookies.get('jwt_token')
 
-    const apiUrl = `http://localhost:5000/jobs?search=${searchInput}`
+    const apiUrl = `https://jobby-backend-kwgu.onrender.com?search=${searchInput}`
 
     const options = {
       headers: {
