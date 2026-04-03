@@ -36,7 +36,7 @@ class Jobs extends Component {
     const {searchInput} = this.state
     const jwtToken = Cookies.get('jwt_token')
 
-    const apiUrl = `https://jobby-backend-kwgu.onrender.com?search=${searchInput}`
+    const apiUrl = `https://jobby-backend-kwgu.onrender.com/jobs?search=${searchInput}`
 
     const options = {
       headers: {
