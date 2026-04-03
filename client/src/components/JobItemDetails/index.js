@@ -66,7 +66,7 @@ class JobItemDetails extends Component {
 
     const jwtToken = Cookies.get('jwt_token')
 
-    const apiUrl = `http://localhost:5000/jobs/${id}`
+    const apiUrl = `https://jobby-backend-kwgu.onrender.com/jobs/${id}`
 
     const options = {
       headers: {
