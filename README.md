@@ -124,6 +124,12 @@ Password: rahul@2021
 * GitHub: https://github.com/harshloya24
 
 ---
+## 🌐 Live Demo
+
+Frontend: https://jobby-app-iota-five.vercel.app/  
+Backend: https://jobby-backend-kwgu.onrender.com
+
+---
 
 ## ⭐ If you like this project
 
