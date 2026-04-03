@@ -55,7 +55,7 @@ class Login extends Component {
     const {username, password} = this.state
     const userDetails = {username, password}
 
-    const url = 'http://localhost:5000/login'
+    const url = 'https://jobby-backend-kwgu.onrender.com/login'
 
     const options = {
       method: 'POST',
