@@ -1,0 +1,32 @@
+/* 🔥 RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 🔥 FONT + BACKGROUND */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0f172a; /* dark modern bg */
+  color: #f1f5f9;
+}
+
+/* 🔥 COMMON CONTAINER */
+.app-container {
+  padding: 20px 40px;
+}
+
+/* 🔥 BUTTON BASE */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* 🔥 INPUT BASE */
+input {
+  font-family: inherit;
+  outline: none;
+}

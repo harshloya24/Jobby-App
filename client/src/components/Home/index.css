@@ -1,0 +1,58 @@
+.home-container {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/home-sm-bg.png');
+  min-height: 90vh;
+  background-size: cover;
+  padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .home-container {
+    background-image: url('https://assets.ccbp.in/frontend/react-js/home-lg-bg.png');
+  }
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 500px;
+}
+
+.home-heading {
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 32px;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+@media screen and (min-width: 768px) {
+  .home-heading {
+    font-size: 52px;
+  }
+}
+
+.home-description {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #f8fafc;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 768px) {
+  .home-description {
+    font-size: 20px;
+  }
+}
+
+.shop-now-button {
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #4f46e5;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
