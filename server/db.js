@@ -3,7 +3,7 @@ const {open} = require('sqlite')
 const path = require('path')
 const bcrypt = require('bcrypt')
 
-const dbPath = path.join(__dirname, 'database/jobbyApp.db')
+const dbPath = path.join(process.cwd(), 'server/database/jobbyApp.db')
 
 let db = null
 
