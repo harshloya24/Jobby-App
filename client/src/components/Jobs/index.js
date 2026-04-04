@@ -19,24 +19,29 @@ class Jobs extends Component {
     profileApiStatus: apiStatusConstants.initial,
     jobsApiStatus: apiStatusConstants.initial,
     searchInput: '',
-    activeEmploymentType: [],
-    activeSalaryRanges: [],
+    activeEmploymentType: '',
+    activeSalaryRanges: '',
   }
 
   componentDidMount() {
-
     this.getJobs()
   }
 
   getProfile = async () => {}
 
+  
   getJobs = async () => {
     this.setState({jobsApiStatus: apiStatusConstants.inProgress})
 
-    const {searchInput} = this.state
+    const {
+      searchInput,
+      activeEmploymentType,
+      activeSalaryRanges,
+    } = this.state
+
     const jwtToken = Cookies.get('jwt_token')
 
-    const apiUrl = `https://jobby-backend-kwgu.onrender.com/jobs?search=${searchInput}`
+    const apiUrl = `https://jobby-backend-kwgu.onrender.com/jobs?search=${searchInput}&employment_type=${activeEmploymentType}&min_package=${activeSalaryRanges}`
 
     const options = {
       headers: {
@@ -70,34 +75,24 @@ class Jobs extends Component {
     }
   }
 
+  
   onChangeEmploymentType = event => {
-    const {activeEmploymentType} = this.state
-    const {value, checked} = event.target
+    const {value} = event.target
 
-    if (checked) {
-      this.setState(
-        {activeEmploymentType: [...activeEmploymentType, value]},
-        this.getJobs,
-      )
-    } else {
-      const updatedList = activeEmploymentType.filter(each => each !== value)
-      this.setState({activeEmploymentType: updatedList}, this.getJobs)
-    }
+    this.setState(prevState => ({
+      activeEmploymentType:
+        prevState.activeEmploymentType === value ? '' : value,
+    }), this.getJobs)
   }
 
+  
   onChangeSalaryRange = event => {
-    const {activeSalaryRanges} = this.state
-    const {value, checked} = event.target
+    const {value} = event.target
 
-    if (checked) {
-      this.setState(
-        {activeSalaryRanges: [...activeSalaryRanges, value]},
-        this.getJobs,
-      )
-    } else {
-      const updatedList = activeSalaryRanges.filter(each => each !== value)
-      this.setState({activeSalaryRanges: updatedList}, this.getJobs)
-    }
+    this.setState(prevState => ({
+      activeSalaryRanges:
+        prevState.activeSalaryRanges === value ? '' : value,
+    }), this.getJobs)
   }
 
   onChangeSearchInput = event => {
@@ -136,7 +131,6 @@ class Jobs extends Component {
       case apiStatusConstants.inProgress:
         return (
           <div className="loader-container">
-            {/* ✅ FIXED HERE */}
             <ThreeDots height="50" width="50" color="#ffffff" />
           </div>
         )
@@ -176,6 +170,7 @@ class Jobs extends Component {
                   <input
                     type="checkbox"
                     value={each.employmentTypeId}
+                    checked={this.state.activeEmploymentType === each.employmentTypeId}
                     onChange={this.onChangeEmploymentType}
                   />
                   <label>{each.label}</label>
@@ -190,6 +185,7 @@ class Jobs extends Component {
                   <input
                     type="checkbox"
                     value={each.salaryRangeId}
+                    checked={this.state.activeSalaryRanges === each.salaryRangeId}
                     onChange={this.onChangeSalaryRange}
                   />
                   <label>{each.label}</label>
